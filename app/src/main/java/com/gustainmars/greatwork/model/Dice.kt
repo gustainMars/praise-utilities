@@ -1,8 +1,5 @@
 package com.gustainmars.greatwork.model
 
-class Dice (private val sides : Int, private val color: String) {
-
-    fun roll(): Int {
-        return (1..sides).random()
-    }
+class Dice (val sides : Int, private val color: String) {
+    fun roll() : String = (1..sides).random().toString()
 }
