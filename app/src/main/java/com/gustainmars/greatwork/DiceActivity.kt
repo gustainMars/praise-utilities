@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import com.gustainmars.greatwork.model.ClassDifficulty
 import com.gustainmars.greatwork.model.Dice
 
 class DiceActivity: AppCompatActivity() {
@@ -16,10 +17,10 @@ class DiceActivity: AppCompatActivity() {
         val txtResultRoll = findViewById<TextView>(R.id.txtRollResult)
 
         rollD6.setOnClickListener {
-            txtResultRoll.text = showResultDieRoll(myd6)
+            showResultDieRoll(myd6).also { txtResultRoll.text = it }
         }
         rollD20.setOnClickListener {
-            txtResultRoll.text = showResultDieRoll(myd20)
+            showResultDieRoll(myd20).also { txtResultRoll.text = it }
         }
     }
 
@@ -28,11 +29,17 @@ class DiceActivity: AppCompatActivity() {
 
     private fun rollD6() = myd6.roll()
 
-    private fun rollD20() = myd20.roll()
+    private fun rollD20(cd: ClassDifficulty): String {
+        val roll = myd20.roll().toInt()
+        return when(roll >= cd.value) {
+            true -> if(roll == 20) "A critical success, a nat $roll!" else "You rolled $roll, your test has succeeded!"
+            false -> "Snap, you fail, you rolled $roll :c"
+        }
+    }
 
     private fun showResultDieRoll(dice: Dice) =
         if(dice.sides == 6) rollD6()
-        else rollD20()
+        else rollD20(ClassDifficulty.NORMAL)
 
 
 }
