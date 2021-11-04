@@ -12,8 +12,9 @@ class MainActivity : AppCompatActivity() {
         val btnDiceActivity = findViewById<Button>(R.id.btnDice)
 
         btnDiceActivity.setOnClickListener {
-            val intent = Intent(this, DiceActivity::class.java)
-            startActivity(intent)
+            val intent = Intent(this, DiceActivity::class.java).apply {
+                startActivity(this)
+            }
         }
     }
 

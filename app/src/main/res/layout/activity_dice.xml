@@ -44,4 +44,18 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:text="1" />
+
+    <ImageView
+        android:id="@+id/imvDice"
+        android:layout_width="160dp"
+        android:layout_height="200dp"
+        android:layout_marginTop="16dp"
+        android:contentDescription="@string/img_dice_desc"
+        app:layout_constraintBottom_toTopOf="@+id/txtRollResult"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.8"
+        tools:ignore="ImageContrastCheck"
+        tools:srcCompat="@drawable/dice_1" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -8,4 +8,5 @@
     <string name="btnDiceText">Roll Dice</string>
     <string name="btnD6">d6</string>
     <string name="btnD20">d20</string>
+    <string name="img_dice_desc">A six-sided dice</string>
 </resources>
